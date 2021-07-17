@@ -29,7 +29,7 @@ route.post(
   ],
   authControllers.signup
 );
-
 route.post("/signin", authControllers.signin);
+
 
 module.exports = route;
