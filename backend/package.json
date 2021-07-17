@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This is backend for the todo app with node js",
   "main": "index.js",
+  "engines": {
+    "node": "14.17.0"
+  },
   "scripts": {
     "start": "nodemon app.js"
   },
