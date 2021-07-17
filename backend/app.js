@@ -1,10 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const helmet = require("helmet");
 
 const todoRoutes = require("./router/todo");
 const authRoutes = require("./router/auth");
 
 const app = express();
+app.use(helmet());
 
 app.use(express.json()); // application/json
 
@@ -29,14 +31,12 @@ app.use((error, req, res, next) => {
   const emailError = error.emailError;
 
   if (error.fromAuth) {
-    res
-      .status(status)
-      .json({
-        message: message,
-        data: data,
-        success: false,
-        emailError: emailError,
-      });
+    res.status(status).json({
+      message: message,
+      data: data,
+      success: false,
+      emailError: emailError,
+    });
   } else {
     res.status(status).json({ message: message, data: data, success: false });
   }
