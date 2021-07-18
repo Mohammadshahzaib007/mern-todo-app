@@ -21,7 +21,18 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res, next) => {
-  res.status(200).json({ message: "Welcome to this api its my first api" });
+  res.status(200).json({
+    message: "Welcome to this api it is my first api",
+    routes: [
+      { method: "GET", routes: "/todo/all_todos" },
+      { method: "GET", routes: "/todo/completed_todos" },
+      { method: "PUT", routes: "/todo/:id" },
+      { method: "PUT", routes: "/todo/:id" },
+      { method: "DELETE", routes: "/todo/:id" },
+      { method: "POST", routes: "/auth/signup" },
+      { method: "POST", routes: "/auth/signin" },
+    ],
+  });
 });
 app.use("/todo", todoRoutes);
 app.use("/auth", authRoutes);

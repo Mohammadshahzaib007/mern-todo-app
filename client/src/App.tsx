@@ -32,11 +32,11 @@ function App() {
     name: null,
   });
 
-  // useEffect(() => {
-  //   if (token === null) {
-  //     history.push("/signin");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (token === null) {
+      history.push("/signin");
+    }
+  }, []);
 
   // login handler
   const loginHandler = async (email: string, password: string) => {
