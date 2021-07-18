@@ -48,8 +48,8 @@ type PropsType = {
 export default function Topbar(props: PropsType) {
   const { state, logoutHandler } = props;
 
-  const token = localStorage.getItem("token");
-  const name = localStorage.getItem("name");
+  const token = sessionStorage.getItem("token");
+  const name = sessionStorage.getItem("name");
 
   const classes = useStyles();
 

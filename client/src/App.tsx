@@ -14,7 +14,7 @@ function App() {
 
   const history = useHistory();
 
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
 
   const [state, setState] = useState<{
     isAuth: boolean;
@@ -60,9 +60,9 @@ function App() {
           error: null,
           name: data.name,
         });
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("userId", data.userId);
-        localStorage.setItem("name", data.name);
+        sessionStorage.setItem("token", data.token);
+        sessionStorage.setItem("userId", data.userId);
+        sessionStorage.setItem("name", data.name);
         history.push("/all-todos");
         window.location.reload();
         addToast(data.message ? data.message : "login Successfully", {
@@ -144,9 +144,9 @@ function App() {
     setState((prevState) => {
       return { ...prevState, isAuth: false, token: null, userId: null };
     });
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("name");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("userId");
+    sessionStorage.removeItem("name");
     history.push("/signin");
   };
 
