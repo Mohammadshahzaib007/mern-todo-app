@@ -70,7 +70,7 @@ export default function Topbar(props: PropsType) {
         <Container>
           <Toolbar disableGutters>
             <Typography variant="h6" className={classes.title}>
-              Welcome, {name} 🥳
+              {token ? `Welcome, ${name} 🥳` : "Mern Todo App"}
             </Typography>
             {state.isAuth ||
               (token && (
