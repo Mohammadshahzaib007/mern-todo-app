@@ -20,6 +20,9 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res, next) => {
+  res.status(200).json({ message: "Welcome to this api its my first api" });
+});
 app.use("/todo", todoRoutes);
 app.use("/auth", authRoutes);
 
@@ -48,7 +51,7 @@ mongoose
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then((result) => {
-    app.listen(8080, () => {
+    app.listen(process.env.PORT || 8080, () => {
       console.log("server started, connected to the db");
     });
   })
