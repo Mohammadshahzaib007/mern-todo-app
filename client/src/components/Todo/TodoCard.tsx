@@ -38,8 +38,18 @@ function TodoCard(props: PropTypes) {
   return (
     <Paper className={classes.paper}>
       <Box>
-        <Typography variant="h5">{title}</Typography>
-        <Typography variant="caption">{description}</Typography>
+        <Typography
+          variant="h5"
+          style={{ textDecoration: isCompleted ? "line-through" : "none" }}
+        >
+          {title}
+        </Typography>
+        <Typography
+          variant="caption"
+          style={{ textDecoration: isCompleted ? "line-through" : "none" }}
+        >
+          {description}
+        </Typography>
       </Box>
 
       <Box display="flex" alignItems="center">
